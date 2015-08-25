@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <declare-styleable name="SelectButton">
+        <attr name="text_one" format="reference|string" />
+        <attr name="text_two" format="reference|string" />
+        <attr name="text_one_bacground" format="reference|color" />
+        <attr name="text_two_bacground" format="reference|color" />
+        <attr name="text_size" format="reference|dimension" />
+    </declare-styleable>
+
+</resources>

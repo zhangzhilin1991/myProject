@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn_select"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">"
+    
+    <Button 
+        android:id="@+id/btn_select_one"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:text="one"
+        android:background="@drawable/select_left"
+        />
+    
+    <Button 
+        android:id="@+id/btn_select_two"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:text="two"
+        android:background="@drawable/select_right"
+        />
+</LinearLayout>
