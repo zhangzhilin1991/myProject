@@ -5,7 +5,7 @@ import com.caihua.broadCastReceiver.UsbReceiver;
 import android.app.Activity;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import static com.caihua.manager.MyUsbManager.*;
+import static com.caihua.usb.MyUsbManager.*;
 
 public abstract class BaseActivity extends Activity{
 	

@@ -6,8 +6,9 @@ import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
-import static com.caihua.manager.MyUsbManager.*;
+import static com.caihua.usb.MyUsbManager.*;
 import static com.caihua.idcardreader.BaseActivity.*;
 
 public class UsbReceiver extends BroadcastReceiver{
@@ -37,6 +38,13 @@ public class UsbReceiver extends BroadcastReceiver{
 					
 				}
 			}
-		}
+		}else  if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
+            UsbDevice device = (UsbDevice)intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
+            if (device != null) {
+                //判断是否为身份证读取设备断开连接，相应操作
+            	
+            }
+        }
+    
 	}
 }
