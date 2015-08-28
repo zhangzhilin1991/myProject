@@ -1,321 +1,260 @@
-//package com.caihua.ui.offline;
-//
-//import android.app.Activity;
-//import android.content.Intent;
-//import android.content.res.AssetManager;
-//import android.net.Uri;
-//import android.os.Bundle;
-//import android.os.Environment;
-//import android.os.Handler;
-//import android.os.Message;
-//import android.util.Log;
-//import android.view.View;
-//import android.view.View.OnClickListener;
-//import android.widget.Button;
-//import android.widget.EditText;
-//import android.widget.ImageView;
-//import android.widget.Toast;
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.FileOutputStream;
-//import java.io.IOException;
-//import java.io.InputStream;
-//import java.util.List;
-//
-//public class DemoActivity extends Activity
-//{
-//  private Button bt_all;
-//  private Button bt_import;
-//  private Button bt_name;
-//  private boolean dataOK = false;
-//  private EditText editText;
-//  private Intent intent;
-//  private ImageView iv;
-//  private Handler mHandler = new Handler()
-//  {
-//    public void handleMessage(Message paramAnonymousMessage)
-//    {
-//      super.handleMessage(paramAnonymousMessage);
-//      switch (paramAnonymousMessage.what)
-//      {
-//      default:
-//        return;
-//      case 1:
-//      }
-//      Toast.makeText(DemoActivity.this.getBaseContext(), "批量识别结束！", 1).show();
-//      DemoActivity.this.editText.setText("批量识别结束！-->/存储卡/ccidcard/testResult.txt");
-//    }
-//  };
-//
-//  public void IdToString(StringBuffer paramStringBuffer,IdCardInfo paramIdCardInfo)
-//  {
-//    if (paramIdCardInfo == null)
-//    {
-//      paramStringBuffer.append("没有识别结果！！图片加载失败，模糊判断错误！").append("\r\n\r\n\r\n");
-//      return;
-//    }
-//    paramStringBuffer.append("姓名   ： ").append(paramIdCardInfo.getName()).append("\r\n");
-//    paramStringBuffer.append("性别   ： ").append(paramIdCardInfo.getSex()).append("\r\n");
-//    paramStringBuffer.append("民族   ： ").append(paramIdCardInfo.getFolk()).append("\r\n");
-//    paramStringBuffer.append("生日   ： ").append(paramIdCardInfo.getBirthday()).append("\r\n");
-//    paramStringBuffer.append("住址   ： ").append(paramIdCardInfo.getAddress()).append("\r\n");
-//    paramStringBuffer.append("证号   ： ").append(paramIdCardInfo.getNum()).append("\r\n");
-//    paramStringBuffer.append("机关   ： ").append(paramIdCardInfo.getAuthority()).append("\r\n");
-//    paramStringBuffer.append("期限   ： ").append(paramIdCardInfo.getValid()).append("\r\n\r\n\r\n");
-//  }
-//
-//  public byte[] getBytesFromFile(File paramFile)
-//    throws IOException
-//  {
-//    FileInputStream localFileInputStream = new FileInputStream(paramFile);
-//    long l = paramFile.length();
-//    if (l > 2147483647L)
-//    {
-//      localFileInputStream.close();
-//      throw new IOException("File is to large " + paramFile.getName());
-//    }
-//    byte[] arrayOfByte = new byte[(int)l];
-//    int i = 0;
-//    try
-//    {
-//      if (i < arrayOfByte.length)
-//      {
-//        j = localFileInputStream.read(arrayOfByte, i, arrayOfByte.length - i);
-//        if (j >= 0);
-//      }
-//      else
-//      {
-//        if (i >= arrayOfByte.length)
-//          break label145;
-//        throw new IOException("Could not completely read file " + paramFile.getName());
-//      }
-//    }
-//    catch (Exception localException)
-//    {
-//      while (true)
-//      {
-//        int j;
-//        return null;
-//        i += j;
-//      }
-//      label145: localFileInputStream.close();
-//      return arrayOfByte;
-//    }
-//    finally
-//    {
-//      ((byte[])null);
-//    }
-//  }
-//
-//  public byte[] getBytesFromFile(String paramString)
-//    throws IOException
-//  {
-//    return getBytesFromFile(new File(paramString));
-//  }
-//
-//  protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)
-//  {
-//    super.onActivityResult(paramInt1, paramInt2, paramIntent);
-//    if (paramInt2 == 200)
-//    {
-//      if (paramIntent != null)
-//      {
-//        IdCardInfo localIdCardInfo = (IdCardInfo)paramIntent.getSerializableExtra("id_card_info");
-//        String str = "识别时间 ：  " + paramIntent.getLongExtra("testkey_1", 0L);
-//        if (localIdCardInfo != null)
-//        {
-//          StringBuffer localStringBuffer = new StringBuffer("");
-//          localStringBuffer.append(localIdCardInfo.getName()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getNum()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getSex()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getBirthday()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getFolk()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getAddress()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getAuthority()).append("\n");
-//          localStringBuffer.append(localIdCardInfo.getValid()).append("\n");
-//          localStringBuffer.append("\n\n");
-//          localStringBuffer.append("找边次数 ： " + (String)localIdCardInfo.getTestRtime().get(0)).append("\n");
-//          localStringBuffer.append("找边时间 ： " + (String)localIdCardInfo.getTestRtime().get(1)).append("\n");
-//          localStringBuffer.append(str).append("\n");
-//          this.editText.setText(localStringBuffer.toString());
-//          try
-//          {
-//            if ((!"".equals(localIdCardInfo.getHead())) && ((localIdCardInfo.getName() != null) || (localIdCardInfo.getNum() != null) || (localIdCardInfo.getAddress() != null)))
-//            {
-//              this.iv.setImageURI(Uri.parse(localIdCardInfo.getHead()));
-//              return;
-//            }
-//            this.iv.setImageURI(null);
-//            return;
-//          }
-//          catch (Exception localException)
-//          {
-//            return;
-//          }
-//        }
-//        this.editText.setText("idCardInfo is null");
-//        return;
-//      }
-//      this.editText.setText("data is null");
-//      return;
-//    }
-//    this.editText.setText("resultCode == " + paramInt2);
-//  }
-//
-//  protected void onCreate(Bundle paramBundle)
-//  {
-//    super.onCreate(paramBundle);
-//    setContentView(2130903040);
-//    this.bt_all = ((Button)findViewById(2130968578));
-//    this.bt_name = ((Button)findViewById(2130968579));
-//    this.bt_import = ((Button)findViewById(2130968580));
-//    this.editText = ((EditText)findViewById(2130968581));
-//    this.iv = ((ImageView)findViewById(2130968577));
-//    this.intent = new Intent(this, CameraActivity.class);
-//    this.bt_all.setOnClickListener(new View.OnClickListener()
-//    {
-//      public void onClick(View paramAnonymousView)
-//      {
-//        if (DemoActivity.this.dataOK)
-//        {
-//          DemoActivity.this.intent.putExtra("ISRECOGNALL", true);
-//          DemoActivity.this.startActivityForResult(DemoActivity.this.intent, 110);
-//          return;
-//        }
-//        Toast.makeText(DemoActivity.this.getBaseContext(), "加载数据，请稍后", 1).show();
-//      }
-//    });
-//    this.bt_name.setOnClickListener(new View.OnClickListener()
-//    {
-//      public void onClick(View paramAnonymousView)
-//      {
-//        if (DemoActivity.this.dataOK)
-//        {
-//          DemoActivity.this.intent.putExtra("ISRECOGNALL", false);
-//          DemoActivity.this.startActivityForResult(DemoActivity.this.intent, 110);
-//          return;
-//        }
-//        Toast.makeText(DemoActivity.this.getBaseContext(), "加载数据，请稍后", 1).show();
-//      }
-//    });
-//    this.bt_import.setOnClickListener(new View.OnClickListener()
-//    {
-//      public void onClick(View paramAnonymousView)
-//      {
-//        if (!Environment.getExternalStorageState().equals("mounted"))
-//        {
-//          Toast.makeText(DemoActivity.this.getBaseContext(), "请插入存储卡", 1).show();
-//          return;
-//        }
-//        Toast.makeText(DemoActivity.this.getBaseContext(), "开始识别", 1).show();
-//        DemoActivity.this.editText.setText("批量识别ing ......");
-//        new Thread()
-//        {
-//          public void run()
-//          {
-//            super.run();
-//            File[] arrayOfFile = new File(UtilApp.getTestImgs()).listFiles();
-//            long l1 = System.currentTimeMillis();
-//            OcrManager localOcrManager = new OcrManager();
-//            localOcrManager.initEngine(true);
-//            long l2 = System.currentTimeMillis() - l1;
-//            Log.d("tag", "--startBCRTime--------->>" + l2);
-//            StringBuffer localStringBuffer = new StringBuffer();
-//            int i = 0;
-//            while (true)
-//            {
-//              File localFile;
-//              if (i >= arrayOfFile.length)
-//              {
-//                localOcrManager.closeEngine();
-//                localFile = new File(UtilApp.getCCIDFOLDER(), "testResult.txt");
-//                if (localFile.exists())
-//                  localFile.delete();
-//              }
-//              try
-//              {
-//                localFile.createNewFile();
-//                FileOutputStream localFileOutputStream = new FileOutputStream(localFile);
-//                localFileOutputStream.write(localStringBuffer.toString().getBytes());
-//                localFileOutputStream.flush();
-//                localFileOutputStream.close();
-//                DemoActivity.this.mHandler.sendEmptyMessage(1);
-//                return;
-//                try
-//                {
-//                  localStringBuffer.append("图片   ： ").append(arrayOfFile[i].getName()).append("\r\n");
-//                  long l3 = System.currentTimeMillis();
-//                  IdCardInfo localIdCardInfo = localOcrManager.testA(DemoActivity.this.getBytesFromFile(arrayOfFile[i].getPath()));
-//                  long l4 = l2 + (System.currentTimeMillis() - l3);
-//                  localStringBuffer.append("耗时   ： ").append(l4).append("\r\n");
-//                  DemoActivity.this.IdToString(localStringBuffer, localIdCardInfo);
-//                  i++;
-//                }
-//                catch (IOException localIOException1)
-//                {
-//                  while (true)
-//                    localIOException1.printStackTrace();
-//                }
-//              }
-//              catch (IOException localIOException2)
-//              {
-//                while (true)
-//                  localIOException2.printStackTrace();
-//              }
-//            }
-//          }
-//        }
-//        .start();
-//      }
-//    });
-//    new Thread()
-//    {
-//      public void run()
-//      {
-//        super.run();
-//        try
-//        {
-//          File localFile1 = new File(UtilApp.getSdcDir() + "/HCBCR18b2u_mob.dat");
-//          if (!localFile1.exists())
-//          {
-//            new File(UtilApp.getSdcDir()).mkdirs();
-//            InputStream localInputStream2 = DemoActivity.this.getAssets().open("HCBCR18b2u_mob.dat");
-//            byte[] arrayOfByte2 = new byte[localInputStream2.available()];
-//            while (localInputStream2.read(arrayOfByte2) != -1);
-//            FileOutputStream localFileOutputStream2 = new FileOutputStream(localFile1);
-//            localFileOutputStream2.write(arrayOfByte2);
-//            localFileOutputStream2.flush();
-//            localInputStream2.close();
-//            localFileOutputStream2.close();
-//          }
-//          File localFile2 = new File(UtilApp.getSdcDir() + "/ScanBcr_Mo.cfg");
-//          if (!localFile2.exists())
-//          {
-//            new File(UtilApp.getSdcDir()).mkdirs();
-//            InputStream localInputStream1 = DemoActivity.this.getAssets().open("ScanBcr_Mo.cfg");
-//            byte[] arrayOfByte1 = new byte[localInputStream1.available()];
-//            while (localInputStream1.read(arrayOfByte1) != -1);
-//            FileOutputStream localFileOutputStream1 = new FileOutputStream(localFile2);
-//            localFileOutputStream1.write(arrayOfByte1);
-//            localFileOutputStream1.flush();
-//            localInputStream1.close();
-//            localFileOutputStream1.close();
-//          }
-//          DemoActivity.this.dataOK = true;
-//          return;
-//        }
-//        catch (Exception localException)
-//        {
-//          localException.printStackTrace();
-//          Log.d("tag", "----tttt------->" + localException.toString());
-//        }
-//      }
-//    }
-//    .start();
-//  }
-//}
-//
-///* Location:           C:\Users\Administrator\Desktop\APK反编译工具\jd-gui-0.3.5\身份证.jar
-// * Qualified Name:     com.yunmai.cc.smart.eye.activity.DemoActivity
-// * JD-Core Version:    0.6.2
-// */
+/**
+ * Generated by smali2java 1.0.0.558
+ * Copyright (C) 2013 Hensence.com
+ */
+
+package com.caihua.ui.offline;
+
+import android.app.Activity;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import android.content.Intent;
+import android.widget.ImageView;
+import android.os.Environment;
+import android.os.Handler;
+
+import com.caihua.camera.IdCardInfo;
+import com.caihua.camera.UtilApp;
+import com.caihua.idcardreader.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.Serializable;
+import java.util.List;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+
+public class DemoActivity extends Activity {
+	private Button bt_all;
+	private Button bt_import;
+	private Button bt_name;
+	private boolean dataOK;
+	private EditText editText;
+	private Intent intent;
+	private ImageView iv;
+	private Handler mHandler;
+
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.demo);
+		bt_all = (Button) findViewById(R.id.bt_start_all);
+		bt_name = (Button) findViewById(R.id.bt_start_name);
+		bt_import = (Button) findViewById(R.id.bt_import);
+		editText = (EditText) findViewById(R.id.et_result);
+		iv = (ImageView) findViewById(R.id.iv_head);
+		
+		intent = new Intent(this, CameraActivity.class);
+		bt_all.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (dataOK) {
+					intent.putExtra("ISRECOGNALL", true);
+					startActivityForResult(intent, 0x6e);
+					return;
+				}
+				Toast.makeText(getBaseContext(),
+						"\u52a0\u8f7d\u6570\u636e\uff0c\u8bf7\u7a0d\u540e", 0x1)
+						.show();
+			}
+		});
+		bt_name.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (dataOK) {
+					intent.putExtra("ISRECOGNALL", false);
+					startActivityForResult(intent, 0x6e);
+					return;
+				}
+				Toast.makeText(getBaseContext(),
+						"\u52a0\u8f7d\u6570\u636e\uff0c\u8bf7\u7a0d\u540e", 0x1)
+						.show();
+			}
+		});
+		bt_import.setOnClickListener(new View.OnClickListener() {
+
+			public void onClick(View v) {
+				if (!Environment.getExternalStorageState().equals("mounted")) {
+					Toast.makeText(getBaseContext(),
+							"\u8bf7\u63d2\u5165\u5b58\u50a8\u5361", 0x1).show();
+					return;
+				}
+				Toast.makeText(getBaseContext(), "\u5f00\u59cb\u8bc6\u522b",
+						0x1).show();
+				editText.setText("\u6279\u91cf\u8bc6\u522bing ......");
+				Thread thread1 = new Thread() {
+
+					public void run() {
+						// :( Parsing error. Please contact me.
+					}
+				};
+				thread1.start();
+			}
+		});
+		Thread thread2 = new Thread() {
+
+			public void run() {
+				super.run();
+				try {
+					File file = new File("/HCBCR18b2u_mob.dat");
+					if (!file.exists()) {
+						new File(UtilApp.getSdcDir()).mkdirs();
+						InputStream is = getAssets().open("HCBCR18b2u_mob.dat");
+						byte[] buffer = new byte[is.available()];
+						int len = 0x0;
+						if (len == -0x1) {
+							FileOutputStream fos = new FileOutputStream(file);
+							fos.write(buffer);
+							fos.flush();
+							is.close();
+							fos.close();
+						}
+					}
+					File file1 = new File("/ScanBcr_Mo.cfg");
+					if (!file1.exists()) {
+						new File(UtilApp.getSdcDir()).mkdirs();
+						InputStream is1 = getAssets().open("ScanBcr_Mo.cfg");
+						byte[] buffer1 = new byte[is1.available()];
+						int len1 = 0x0;
+						if (len1 == -0x1) {
+							FileOutputStream fos1 = new FileOutputStream(file1);
+							fos1.write(buffer1);
+							fos1.flush();
+							is1.close();
+							fos1.close();
+						}
+					}
+					dataOK = true;
+					return;
+				} catch (Exception e) {
+					e.printStackTrace();
+					Log.d("tag", e.toString());
+				}
+			}
+		};
+		thread2.start();
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode == 0xc8) {
+			if (data != null) {
+				IdCardInfo idCardInfo = (IdCardInfo) data
+						.getSerializableExtra("id_card_info");
+				long rTime = data.getLongExtra("testkey_1", 0x0);
+				if (idCardInfo != null) {
+					StringBuffer result = new StringBuffer("");
+					result.append(idCardInfo.getName()).append("\n");
+					result.append(idCardInfo.getNum()).append("\n");
+					result.append(idCardInfo.getSex()).append("\n");
+					result.append(idCardInfo.getBirthday()).append("\n");
+					result.append(idCardInfo.getFolk()).append("\n");
+					result.append(idCardInfo.getAddress()).append("\n");
+					result.append(idCardInfo.getAuthority()).append("\n");
+					result.append(idCardInfo.getValid()).append("\n");
+					result.append("\n\n");
+					result.append((String) idCardInfo.getTestRtime().get(0x0))
+							.append("\n");
+					result.append((String) idCardInfo.getTestRtime().get(0x1))
+							.append("\n");
+					result.append(rTime).append("\n");
+					editText.setText(result.toString());
+					try {
+						if (!"".equals(idCardInfo.getHead())) {
+							if ((idCardInfo.getName() != null)
+									|| (idCardInfo.getNum() != null)
+									|| (idCardInfo.getAddress() != null)) {
+								iv.setImageURI(Uri.parse(idCardInfo.getHead()));
+							}
+							return;
+						}
+
+						// ?????
+						// iv.setImageURI(0x0);
+
+						return;
+					} catch (Exception localException1) {
+						return;
+					}
+				}
+				editText.setText("idCardInfo is null");
+				return;
+			}
+			editText.setText("data is null");
+			return;
+		}
+		editText.setText(resultCode);
+	}
+
+	public void IdToString(StringBuffer sb, IdCardInfo idCardInfo) {
+		if (idCardInfo == null) {
+			sb.append(
+					"\u6ca1\u6709\u8bc6\u522b\u7ed3\u679c\uff01\uff01\u56fe\u7247\u52a0\u8f7d\u5931\u8d25\uff0c\u6a21\u7cca\u5224\u65ad\u9519\u8bef\uff01")
+					.append("\r\n\r\n\r\n");
+			return;
+		}
+		sb.append("\u59d3\u540d   \uff1a ").append(idCardInfo.getName())
+				.append("\r\n");
+		sb.append("\u6027\u522b   \uff1a ").append(idCardInfo.getSex())
+				.append("\r\n");
+		sb.append("\u6c11\u65cf   \uff1a ").append(idCardInfo.getFolk())
+				.append("\r\n");
+		sb.append("\u751f\u65e5   \uff1a ").append(idCardInfo.getBirthday())
+				.append("\r\n");
+		sb.append("\u4f4f\u5740   \uff1a ").append(idCardInfo.getAddress())
+				.append("\r\n");
+		sb.append("\u8bc1\u53f7   \uff1a ").append(idCardInfo.getNum())
+				.append("\r\n");
+		sb.append("\u673a\u5173   \uff1a ").append(idCardInfo.getAuthority())
+				.append("\r\n");
+		sb.append("\u671f\u9650   \uff1a ").append(idCardInfo.getValid())
+				.append("\r\n\r\n\r\n");
+	}
+
+	public byte[] getBytesFromFile(String path) throws IOException {
+		File file = new File(path);
+		return getBytesFromFile(file);
+	}
+
+	public byte[] getBytesFromFile(File file) throws IOException {
+		FileInputStream is = new FileInputStream(file);
+		long length = file.length();
+		if (length > 0x7fffffff) {
+			is.close();
+			throw new IOException(file.getName());
+		}
+		byte[] bytes = new byte[(int) length];
+		int offset = 0x0;
+		int numRead = 0x0;
+		try {
+			while (offset < bytes.length) {
+				if (numRead < 0) {
+					break;
+				}
+				offset += numRead;
+			}
+			if (offset < bytes.length) {
+				throw (new IOException("Could not completely read file "
+						+ file.getName().toString()));
+				// localStringBuilder1 = new
+				// IOException("Could not completely read file ").append(file.getName()).toString();
+			}
+			is.close();
+			// return null;
+			// bytes = 0x0;
+			return null;
+			// bytes = 0x0;
+		} finally {
+
+		}
+
+	}
+}

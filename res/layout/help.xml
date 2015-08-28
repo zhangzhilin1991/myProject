@@ -1,13 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <TextView android:textSize="20.0sp" android:textColor="#ff000000" android:gravity="center" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip" android:text="身份证读卡软件使用帮助" />
-        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/site" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="本软件演示视频链接：http://v.youku.com/v_show/id_XNzMwMzc5MDQw.html" android:lineSpacingMultiplier="1.25" />
-        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/otg" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:text="1、本软件需要和身份证读卡器连接才能正常使用，手机需要支持OTG功能。" android:lineSpacingMultiplier="1.25" />
-        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/type" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:text="2、本软件支持华旭、新中新等品牌的读卡器。" android:lineSpacingMultiplier="1.25" />
-        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/user" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:text=" 3、使用方法：软件安装成功后，将读卡器与手机正确连接后，手机会自动提醒用户是否使用本软件打开程序，请选择始终用此程序打开此类设备;也可以先将软件打开，再连接读卡器。当界面上显示读卡器已连接后，将二代身份证放在读卡器上，系统会自动读取身份证。          " android:lineSpacingMultiplier="1.25" />
-        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:id="@id/scene" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:text="4、使用场景：（1）身份信息核对。例如：查看学校家长接送、网络订票取票、网吧实名制上网、公安行业身份证流动查验等需要核对身份信息的场景。（2）身份信息采集。例如：户口信息调查、临时人员身份信息采集等需要采集身份信息的场景。" android:lineSpacingMultiplier="1.25" />
-        <Button android:textAppearance="?android:textAppearanceLarge" android:layout_gravity="center_horizontal" android:id="@id/button" android:layout_width="220.0dip" android:layout_height="60.0dip" android:layout_marginTop="15.0dip" android:layout_marginBottom="40.0dip" android:text="返    回" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffffff" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffffff"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="20.0dip"
+            android:layout_marginTop="20.0dip"
+            android:gravity="center"
+            android:text="身份证读卡软件使用帮助"
+            android:textColor="#ff000000"
+            android:textSize="20.0sp" />
+
+        <TextView
+            android:id="@+id/site"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4.0dip"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="本软件演示视频链接：http://v.youku.com/v_show/id_XNzMwMzc5MDQw.html"
+            android:textColor="#ff000000"
+            android:textSize="18.0sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/otg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2.0dip"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="1、本软件需要和身份证读卡器连接才能正常使用，手机需要支持OTG功能。"
+            android:textColor="#ff000000"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2.0dip"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="2、本软件支持华旭、新中新等品牌的读卡器。"
+            android:textColor="#ff000000"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2.0dip"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text=" 3、使用方法：软件安装成功后，将读卡器与手机正确连接后，手机会自动提醒用户是否使用本软件打开程序，请选择始终用此程序打开此类设备;也可以先将软件打开，再连接读卡器。当界面上显示读卡器已连接后，将二代身份证放在读卡器上，系统会自动读取身份证。          "
+            android:textColor="#ff000000"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/scene"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="2.0dip"
+            android:lineSpacingMultiplier="1.25"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="12.0dip"
+            android:text="4、使用场景：（1）身份信息核对。例如：查看学校家长接送、网络订票取票、网吧实名制上网、公安行业身份证流动查验等需要核对身份信息的场景。（2）身份信息采集。例如：户口信息调查、临时人员身份信息采集等需要采集身份信息的场景。"
+            android:textColor="#ff000000"
+            android:textSize="18.0sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="220.0dip"
+            android:layout_height="60.0dip"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40.0dip"
+            android:layout_marginTop="15.0dip"
+            android:text="返    回"
+            android:textAppearance="?android:textAppearanceLarge" />
     </LinearLayout>
+
 </ScrollView>

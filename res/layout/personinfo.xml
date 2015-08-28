@@ -1,45 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@drawable/show" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:gravity="center_vertical" android:id="@id/rltop" android:background="@drawable/stat" android:layout_width="fill_parent" android:layout_height="45.0dip">
-        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@id/readerstat" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:text="请连接读卡器" />
-        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@id/txtnet" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" android:text="" android:layout_alignParentRight="true" />
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/show" >
+
+    <RelativeLayout
+        android:id="@+id/rltop"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:background="@drawable/stat"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/readerstat"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5.0dip"
+            android:gravity="center_vertical"
+            android:paddingLeft="8.0dip"
+            android:text="请连接读卡器"
+            android:textColor="#ffffffff"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/txtnet"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:gravity="center_vertical"
+            android:paddingLeft="8.0dip"
+            android:text=""
+            android:textColor="#ffffffff"
+            android:textSize="18.0sp" />
     </RelativeLayout>
-    <LinearLayout android:orientation="horizontal" android:id="@id/llinfo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_below="@id/rltop">
-        <RelativeLayout android:layout_width="0.0dip" android:layout_height="140.0dip" android:layout_weight="1.5">
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="姓名:" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvname2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvname" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvsex" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="性别:" android:layout_below="@id/tvname" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvsex2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvsex" android:layout_below="@id/tvname" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvnation" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="民族:" android:layout_below="@id/tvsex" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvnation2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvnation" android:layout_below="@id/tvsex" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvbirthday" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="出生日期:" android:layout_below="@id/tvnation" />
-            <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvbirthday2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvbirthday" android:layout_below="@id/tvnation" />
+
+    <LinearLayout
+        android:id="@+id/llinfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rltop"
+        android:layout_marginLeft="5.0dip"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0.0dip"
+            android:layout_height="140.0dip"
+            android:layout_weight="1.5" >
+
+            <TextView
+                android:id="@+id/tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:text="姓名:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff008284" />
+
+            <TextView
+                android:id="@+id/tvname2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@+id/tvname"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+
+            <TextView
+                android:id="@+id/tvsex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvname"
+                android:layout_marginTop="10.0dip"
+                android:text="性别:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff008284" />
+
+            <TextView
+                android:id="@+id/tvsex2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvname"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@+id/tvsex"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+
+            <TextView
+                android:id="@+id/tvnation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvsex"
+                android:layout_marginTop="10.0dip"
+                android:text="民族:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff008284" />
+
+            <TextView
+                android:id="@+id/tvnation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvsex"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@+id/tvnation"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+
+            <TextView
+                android:id="@+id/tvbirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvnation"
+                android:layout_marginTop="10.0dip"
+                android:text="出生日期:"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff008284" />
+
+            <TextView
+                android:id="@+id/tvbirthday2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvnation"
+                android:layout_marginTop="10.0dip"
+                android:layout_toRightOf="@+id/tvbirthday"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
         </RelativeLayout>
-        <ImageView android:id="@id/ivHead2" android:layout_width="0.0dip" android:layout_height="140.0dip" android:src="@drawable/head" android:layout_weight="1.0" />
+
+        <ImageView
+            android:id="@+id/ivHead2"
+            android:layout_width="0.0dip"
+            android:layout_height="140.0dip"
+            android:layout_weight="1.0"
+            android:src="@drawable/head" />
     </LinearLayout>
-    <RelativeLayout android:id="@id/rlex" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="10.0dip" android:layout_below="@id/llinfo">
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="身份证号:" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvcode2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@id/tvcode" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvaddress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="户口地址:" android:layout_below="@id/tvcode" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvaddress2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvaddress" android:layout_below="@id/tvcode" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvdate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="有效期限:" android:layout_below="@id/tvaddress" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvdate2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_toRightOf="@id/tvdate" android:layout_below="@id/tvaddress" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff008284" android:id="@id/tvdepart" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="签发机关:" android:layout_below="@id/tvdate" />
-        <TextView android:textAppearance="?android:textAppearanceMedium" android:textColor="#ff000000" android:id="@id/tvdepart2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvdepart" android:layout_below="@id/tvdate" />
-        <TextView android:textSize="26.0dip" android:textColor="#ff008284" android:id="@id/tvUUID" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="GUID:" android:layout_below="@id/tvdepart" />
-        <TextView android:textSize="26.0dip" android:textColor="#ffff0000" android:id="@id/tvUUID2" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/tvUUID" android:layout_below="@id/tvdepart" />
-        <TextView android:textAppearance="?android:textAppearanceLarge" android:textColor="#ff008284" android:id="@id/sitec" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="演示视频:" android:layout_below="@id/tvUUID" />
-        <TextView android:textAppearance="?android:textAppearanceLarge" android:textColor="#ff000000" android:id="@id/site" android:paddingLeft="5.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="点击查看" android:layout_toRightOf="@id/sitec" android:layout_below="@id/tvUUID" />
-        <TextView android:textAppearance="?android:textAppearanceLarge" android:textColor="#ff008284" android:id="@id/version" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="版本号:" android:layout_below="@id/sitec" />
-        <TextView android:textAppearance="?android:textAppearanceLarge" android:textColor="#ff008284" android:id="@id/version2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_toRightOf="@id/version" android:layout_below="@id/sitec" />
+
+    <RelativeLayout
+        android:id="@+id/rlex"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llinfo"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginTop="10.0dip" >
+
+        <TextView
+            android:id="@+id/tvcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证号:"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff008284" />
+
+        <TextView
+            android:id="@+id/tvcode2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tvcode"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff000000" />
+
+        <TextView
+            android:id="@+id/tvaddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvcode"
+            android:layout_marginTop="10.0dip"
+            android:text="户口地址:"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff008284" />
+
+        <TextView
+            android:id="@+id/tvaddress2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvcode"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@+id/tvaddress"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff000000" />
+
+        <TextView
+            android:id="@+id/tvdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvaddress"
+            android:layout_marginTop="20.0dip"
+            android:text="有效期限:"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff008284" />
+
+        <TextView
+            android:id="@+id/tvdate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvaddress"
+            android:layout_marginTop="20.0dip"
+            android:layout_toRightOf="@+id/tvdate"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff000000" />
+
+        <TextView
+            android:id="@+id/tvdepart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvdate"
+            android:layout_marginTop="10.0dip"
+            android:text="签发机关:"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff008284" />
+
+        <TextView
+            android:id="@+id/tvdepart2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvdate"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@+id/tvdepart"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#ff000000" />
+
+        <TextView
+            android:id="@+id/tvUUID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvdepart"
+            android:layout_marginTop="10.0dip"
+            android:text="GUID:"
+            android:textColor="#ff008284"
+            android:textSize="26.0dip" />
+
+        <TextView
+            android:id="@+id/tvUUID2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvdepart"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@+id/tvUUID"
+            android:textColor="#ffff0000"
+            android:textSize="26.0dip"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/sitec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUUID"
+            android:layout_marginTop="10.0dip"
+            android:text="演示视频:"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ff008284"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUUID"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@+id/sitec"
+            android:paddingLeft="5.0dip"
+            android:text="点击查看"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ff000000"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sitec"
+            android:layout_marginTop="10.0dip"
+            android:paddingLeft="5.0dip"
+            android:text="版本号:"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ff008284" />
+
+        <TextView
+            android:id="@+id/version2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sitec"
+            android:layout_marginTop="10.0dip"
+            android:layout_toRightOf="@+id/version"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ff008284" />
     </RelativeLayout>
-    <LinearLayout android:orientation="horizontal" android:id="@id/buttons" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="50.0dip" android:layout_alignParentBottom="true">
-        <Button android:textAppearance="?android:textAppearanceLarge" android:textColor="#ffffffff" android:gravity="center" android:id="@id/btnHelp" android:background="@drawable/btnreg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="8.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="8.0dip" android:text="说  明" android:layout_weight="1.0" />
-        <Button android:textAppearance="?android:textAppearanceLarge" android:textColor="#ffffffff" android:gravity="center" android:id="@id/btnset" android:background="@drawable/btnreg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="8.0dip" android:layout_marginBottom="8.0dip" android:text="设    置" android:layout_weight="1.0" />
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50.0dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnHelp"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="8.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/btnreg"
+            android:gravity="center"
+            android:text="说  明"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:id="@+id/btnset"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginBottom="8.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="8.0dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/btnreg"
+            android:gravity="center"
+            android:text="设    置"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="#ffffffff" />
     </LinearLayout>
-    <RelativeLayout android:orientation="horizontal" android:id="@id/tvkasta" android:background="@drawable/stat" android:layout_width="fill_parent" android:layout_height="45.0dip" android:layout_alignParentBottom="true">
-        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@id/tvkastat" android:paddingLeft="8.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:text="正常" />
-        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center_vertical" android:id="@id/tvmode" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="8.0dip" android:text="模式:本地模式" android:layout_alignParentRight="true" />
+
+    <RelativeLayout
+        android:id="@+id/tvkasta"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/stat"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tvkastat"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5.0dip"
+            android:gravity="center_vertical"
+            android:paddingLeft="8.0dip"
+            android:text="正常"
+            android:textColor="#ffffffff"
+            android:textSize="18.0sp" />
+
+        <TextView
+            android:id="@+id/tvmode"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8.0dip"
+            android:gravity="center_vertical"
+            android:paddingLeft="5.0dip"
+            android:text="模式:本地模式"
+            android:textColor="#ffffffff"
+            android:textSize="18.0sp" />
     </RelativeLayout>
+
 </RelativeLayout>

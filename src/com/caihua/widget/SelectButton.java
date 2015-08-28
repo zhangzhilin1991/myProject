@@ -1,7 +1,6 @@
 package com.caihua.widget;
 
 import com.caihua.idcardreader.R;
-import com.caihua.idcardreader.R.drawable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
