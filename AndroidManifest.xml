@@ -30,7 +30,7 @@
         <activity
             android:name="com.caihua.ui.online.WelComeActivity"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -59,17 +59,18 @@
 
         <!-- offline -->
         <activity
-            android:name="com.yunmai.cc.smart.eye.activity.DemoActivity"
+            android:name="com.caihua.ui.offline.DemoActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="证件识别"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.yunmai.cc.smart.eye.activity.CameraActivity"
+            android:name="com.caihua.ui.offline.CameraActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:screenOrientation="landscape" 
+            android:theme="@style/CaptureTheme"
+            />
     </application>
 
 </manifest>

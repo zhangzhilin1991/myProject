@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="AppBaseTheme" parent="@android:style/Theme.Light" />
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
     <style name="AppTheme" parent="@style/AppBaseTheme" />
+
+    <style name="ResultButton" parent="@android:style/Widget.Holo.Button.Borderless.Small">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="CaptureTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBarOverlay">true</item>
+        <item name="windowActionModeOverlay">true</item>
+          <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="colorPrimary">@color/transparent</item>
+        <item name="colorAccent">#00ff00</item>
+    </style>
+
 </resources>

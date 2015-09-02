@@ -10,8 +10,15 @@
     <color name="red2">#f44336</color>
     <color name="red3">#e57373</color>
     <color name="red4">#ffcdd2</color>
-    
-      <color name="green">#009688</color>
+    <color name="green">#009688</color>
     <color name="green_dark">#004d40</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+     <color name="status_text">#ffffffff</color>
+     
+     <color name="green_light">#ff00ff00</color>
 
 </resources>

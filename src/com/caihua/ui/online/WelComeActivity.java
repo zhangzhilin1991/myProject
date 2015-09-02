@@ -7,12 +7,14 @@ import android.hardware.usb.UsbDevice;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
 import android.widget.Toast;
 
 import java.util.List;
 
 import com.caihua.idcardreader.BaseActivity;
 import com.caihua.idcardreader.R;
+import com.caihua.ui.offline.CameraActivity;
 import com.caihua.usb.MyUsbManager;
 
 import static com.caihua.usb.MyUsbManager.*;
@@ -28,7 +30,7 @@ public class WelComeActivity extends BaseActivity {
 		setContentView(R.layout.welcome);
 		ActivityList.activities.add(this);
 		// sendBroadcast(new Intent(ACTION_USB_PERMISSION));
-
+		actionBar.hide();
 		usbManager = new MyUsbManager(this);
 		usbDevice = usbManager.getUsbDevice(getIntent());
 		if (usbDevice == null) {
@@ -60,16 +62,20 @@ public class WelComeActivity extends BaseActivity {
 						ReaderActivity.class);
 				WelComeActivity.this.startActivity(localIntent);
 				WelComeActivity.this.finish();
-
 			}
-		}, 2000L);
+		}, 500L);
 	}
 
 	/**
 	 * 跳转到离线状态
 	 */
 	private void StartOffline() {
-
+		new Handler().postDelayed(new Runnable() {
+			public void run() {
+				startActivity(new Intent(getApplicationContext(),CameraActivity.class));
+				WelComeActivity.this.finish();
+			}
+		}, 500L);
 	}
 
 	@Override
