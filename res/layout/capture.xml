@@ -203,4 +203,12 @@
             android:text="@string/msg_default_status"
             android:textColor="@color/status_text"/>
 
+  <ImageView
+      android:id="@+id/lightview"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/flash_auto"
+      android:layout_gravity="center_vertical|left"
+      android:clickable="true" />
+
 </merge>

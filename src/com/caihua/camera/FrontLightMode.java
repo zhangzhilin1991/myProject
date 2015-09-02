@@ -17,6 +17,7 @@
 package com.caihua.camera;
 
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 /**
  * Enumerates settings of the preference controlling the front light.
@@ -36,8 +37,24 @@ public enum FrontLightMode {
     return modeString == null ? OFF : valueOf(modeString);
   }
 
+  /**
+   * 获取当前闪光灯模式
+   * @param sharedPrefs
+   * @return
+   */
   public static FrontLightMode readPref(SharedPreferences sharedPrefs) {
     return parse(sharedPrefs.getString(KEY_FRONT_LIGHT_MODE, OFF.toString()));
+  }
+  
+  /**
+   * 设置闪光灯模式
+   * @param sharedPrefs
+   * @param mode
+   */
+  public static final void setPref(SharedPreferences sharedPrefs,FrontLightMode mode){
+	  Editor editor=sharedPrefs.edit();
+	  editor.putString(KEY_FRONT_LIGHT_MODE,mode.toString());
+	  editor.commit();
   }
 
 }

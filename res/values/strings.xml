@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">身份证信息读取</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -16,19 +17,20 @@
  "<i>联系电话:400-880-9192</i>" 
  "<i>意见反馈:400-880-9192</i>" 
  "<b>版权所有:江苏物合智联科技有限公司</b>" "</string>
- 
-    
-    
     <string name="msg_default_format">Format</string>
-  <string name="msg_default_meta">Metadata</string>
-  <string name="msg_default_mms_subject">Hi</string>
-  <string name="msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
-  <string name="msg_default_time">Time</string>
-  <string name="msg_default_type">Type</string>
+    <string name="msg_default_meta">Metadata</string>
+    <string name="msg_default_mms_subject">Hi</string>
+    <string name="msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
+    <string name="msg_default_time">Time</string>
+    <string name="msg_default_type">Type</string>
     <string name="menu_encode_mecard">Use MECARD</string>
-  <string name="menu_encode_vcard">Use vCard</string>
-  <string name="menu_help">Help</string>
-  <string name="menu_history">History</string>
-  <string name="menu_settings">Settings</string>
-  <string name="menu_share">Share</string>
+    <string name="menu_encode_vcard">Use vCard</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_share">Share</string>
+    
+    <string name="preferences">配置</string>
+    <string name="preferences_light_mode">闪光灯</string>
+
 </resources>

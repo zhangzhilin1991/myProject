@@ -30,7 +30,7 @@ import java.io.IOException;
  * implementation encapsulates the steps needed to take preview-sized images, which are used for
  * both preview and decoding.
  *
- * @author dswitkin@google.com (Daniel Switkin)
+ * @author zhangzhilin
  */
 public final class CameraManager {
 

@@ -57,6 +57,7 @@ import java.util.Map;
 
 import com.caihua.camera.CameraManager;
 import com.caihua.camera.CaptureActivityHandler;
+import com.caihua.camera.FlashManager;
 import com.caihua.idcardreader.BaseActivity;
 import com.caihua.idcardreader.R;
 import com.caihua.utils.MyLog;
@@ -67,9 +68,6 @@ public final class CameraActivity extends BaseActivity implements
 
 	private static final String TAG = CameraActivity.class.getSimpleName();
 
-	private static final long DEFAULT_INTENT_RESULT_DURATION_MS = 1500L;
-	private static final long BULK_MODE_SCAN_DELAY_MS = 1000L;
-
 	public static final int HISTORY_REQUEST_CODE = 0x0000bacc;
 
 	private CameraManager cameraManager;
@@ -77,14 +75,11 @@ public final class CameraActivity extends BaseActivity implements
 	private ViewfinderView viewfinderView;
 	private TextView statusView;
 	private View resultView;
+	private ImageView lightView;
 
 	private boolean hasSurface;
-	private boolean copyToClipboard;
 	private Handler handler;
-
-	private String sourceUrl;
-
-	private String characterSet;
+	private FlashManager flashManager;
 
 	ViewfinderView getViewfinderView() {
 		return viewfinderView;
@@ -105,6 +100,14 @@ public final class CameraActivity extends BaseActivity implements
 		Window window = getWindow();
 		window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 		setContentView(R.layout.capture);
+		
+		
+		hasSurface = false;
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		flashManager=new FlashManager(this);
+		
+		
+		
 //		Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
 //		if(toolbar!=null){
 //		setSupportActionBar(toolbar);
@@ -112,11 +115,7 @@ public final class CameraActivity extends BaseActivity implements
 //			
 //		}
 
-		hasSurface = false;
-		// inactivityTimer = new InactivityTimer(this);
-		// beepManager = new BeepManager(this);
-		// ambientLightManager = new AmbientLightManager(this);
-
+	
 	}
 
 	@Override
@@ -131,7 +130,9 @@ public final class CameraActivity extends BaseActivity implements
 		// wrong size and partially
 		// off screen.
 		cameraManager = new CameraManager(getApplication());
-
+		lightView=(ImageView) findViewById(R.id.lightview);
+		
+		
 		viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
 		viewfinderView.setCameraManager(cameraManager);
 
@@ -175,6 +176,7 @@ public final class CameraActivity extends BaseActivity implements
 		// inactivityTimer.onPause();
 		// ambientLightManager.stop();
 		// beepManager.close();
+		flashManager.stop();
 		cameraManager.closeDriver();
 		// historyManager = null; // Keep for onActivityResult
 		if (!hasSurface) {
@@ -582,6 +584,8 @@ public final class CameraActivity extends BaseActivity implements
 			// 9/1 添加
 			// cameraManager.startPreview();
 			// decodeOrStoreSavedBitmap(null, null);
+			//startPreview后，判断是否开启闪光灯
+			flashManager.start(cameraManager, lightView);
 		} catch (IOException ioe) {
 			MyLog.e(TAG, ioe);
 			// displayFrameworkBugMessageAndExit();
@@ -626,4 +630,7 @@ public final class CameraActivity extends BaseActivity implements
 		// TODO Auto-generated method stub
 
 	}
+	
+	
+
 }
